@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>New</title>
+</head>
+<body>
+
+<div class="main">
+    <div class="field">
+        <form th:method="POST" th:action="@{/}" th:object="${user}">
+            <label for="name">Name: </label>
+            <input type="text" th:field="*{name}" id="name"/>
+            <br/>
+            <label for="surname">Surname: </label>
+            <input type="text" th:field="*{surname}" id="surname"/>
+            <br/>
+            <label for="email">Email: </label>
+            <input type="text" th:field="*{email}" id="email"/>
+            <br/>
+            <input type="submit" value="Create!"/>
+        </form>
+    </div>
+</div>
+
+<style>
+    .field {
+        clear: both;
+        text-align: right;
+        line-height: 25px;
+    }
+
+    label {
+        float: left;
+        padding-right: 10px;
+    }
+
+    .main {
+        float: left;
+        margin: 20px
+    }
+</style>
+
+</body>
+</html>

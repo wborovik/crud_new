@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:utext="${user.id}"></td>
+            <td th:utext="${user.name}"></td>
+            <td th:utext="${user.surname}"></td>
+            <td th:utext="${user.email}"></td>
+            <td class="butt">
+                <form th:method="GET" th:action="@{/{id}/edit(id=${user.id})}">
+                    <button>Edit</button>
+                </form>
+                <form th:method="DELETE" th:action="@{/{id}(id=${user.id})}">
+                    <input type="submit" value="Delete"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <h2><a href="/new">Add new user</a></h2>
+
+    <style>
+        table {
+            width: 60%;
+            border: 4px double black;
+            border-collapse: collapse;
+            margin: 20px;
+        }
+
+        th {
+            text-align: left;
+            background: #ccc;
+            padding: 5px;
+            border: 1px solid black;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid black;
+        }
+
+        h2 {
+            margin: 20px
+        }
+
+        form {
+            margin-left: 5px;
+        }
+
+        td.butt {
+            display: flex;
+            background: #ccc;
+        }
+
+    </style>
+
+</div>
+</body>
+</html>
